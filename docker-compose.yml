@@ -1,0 +1,51 @@
+version: "3.1"
+services:
+
+  bee:
+    image: nginx:latest
+    privileged: true
+    container_name: bee-webserver
+    working_dir: /bee
+    volumes:
+    - .:/bee
+    - ./phpdocker/bee.conf:/etc/nginx/conf.d/default.conf
+    ports:
+    - "8080:80"
+    depends_on:
+      - bee-php-fpm
+
+  bee-php-fpm:
+    build: phpdocker/php-fpm
+    container_name: bee-php-fpm
+    working_dir: /bee
+    volumes:
+    - .:/bee
+    - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+  
+  bee_db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./phpdocker/database:/dump/
+    restart: always
+    command: --sql_mode="NO_ENGINE_SUBSTITUTION"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bee_dev
+      MYSQL_USER: bee_dev
+      MYSQL_PASSWORD: bee_dev
+    ports:
+      - "33070:3306"
+
+  redis-bee:
+    image: redis:3.2-alpine
+    ports:
+      - "63792:6379"
+
+networks:
+  default:
+    external:
+      name: beetest
+
+volumes:
+  db_data: {}

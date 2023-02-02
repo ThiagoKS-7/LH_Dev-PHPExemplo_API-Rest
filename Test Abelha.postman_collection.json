@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "a3bda0e8-f825-462d-8b0f-49d28bab6400",
+		"name": "Test Abelha",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bee",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/bee",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"bee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBeeId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/bee/3",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"bee",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Added",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"name\": \"Nome Abelha\",\r\n            \"specie\": \"Espécie\"\r\n        },\r\n        {\r\n            \"name\": \"Nome Abelha\",\r\n            \"specie\": \"Espécie\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/bee",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"bee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "flower",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/flowers",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"flowers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/flowers/20",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"flowers",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Added",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":[\r\n        {\r\n            \"name\": \"asdf\",\r\n            \"specie\": \"asdf\",\r\n            \"description\": \"asdf\",\r\n            \"bee\": [2,4],\r\n            \"month\": [1,2,3,4,5,6]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/flowers",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"flowers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "sendPost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"month\": [1,2,3,4,5,6,7,8,9,10,11,12]\r\n        },\r\n        {\r\n            \"bee\": [1,5]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/test",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/test/20",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"test",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\r\n            \"beeId\": [4]\r\n            , \"month\" : [1,6]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/search",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
